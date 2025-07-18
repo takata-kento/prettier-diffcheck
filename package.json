@@ -1,0 +1,52 @@
+{
+  "name": "prettier-diffcheck",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Prettier plugin for displaying formatting differences in diff format",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "prettier-diffcheck": "dist/cli.js"
+  },
+  "keywords": [
+    "prettier",
+    "plugin",
+    "diff",
+    "format",
+    "check"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "diff": "^5.1.0",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/diff": "^5.0.0",
+    "@types/node": "^18.0.0",
+    "prettier": "^3.0.0",
+    "jest": "^29.0.0",
+    "@types/jest": "^29.0.0",
+    "ts-jest": "^29.0.0"
+  },
+  "peerDependencies": {
+    "prettier": "^2.0.0 || ^3.0.0"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/takata-kento/prettier-diffcheck.git"
+  },
+  "author": "Takata Kento",
+  "license": "MIT"
+}
