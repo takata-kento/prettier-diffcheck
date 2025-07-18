@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript/Build
+dist/
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Temporary test files
+test1.js
+test2.js
+formatted.js
+example.js
