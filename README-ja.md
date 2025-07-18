@@ -1,43 +1,43 @@
 # prettier-diffcheck
 
-A Prettier plugin that displays formatting differences in diff format. You can see what changes Prettier would make to your files without actually modifying them.
+Prettierプラグインで、フォーマット前後の差分をdiff形式で表示します。ファイルを実際に変更することなく、Prettierがどのような変更を加えるかを確認できます。
 
-## Features
+## 機能
 
-- 🔍 Display Prettier formatting differences in diff format
-- 🎨 Beautiful colored output
-- 📁 Multiple file support
-- 🚫 No file modifications (dry-run)
-- 📊 Formatting statistics display
-- 🔧 Support for all Prettier-compatible languages
+- 🔍 Prettierフォーマット前後の差分をdiff形式で表示
+- 🎨 カラー付きの見やすい出力
+- 📁 複数ファイル対応
+- 🚫 ファイルを実際には変更しない（dry-run）
+- 📊 フォーマット結果の統計表示
+- 🔧 全てのPrettier対応言語をサポート
 
-## Installation
+## インストール
 
 ```bash
 npm install prettier-diffcheck --save-dev
-# or
+# または
 yarn add prettier-diffcheck --dev
 ```
 
-## Usage
+## 使用方法
 
-### As CLI Tool
+### CLIツールとして
 
 ```bash
 npx prettier-diffcheck src/**/*.js
 ```
 
-Options:
-- `--no-color`: Disable colored output
-- `--help`: Show help message
+オプション:
+- `--no-color`: カラー出力を無効化
+- `--help`: ヘルプを表示
 
-### As Prettier Plugin
+### Prettierプラグインとして
 
 ```bash
 prettier --plugin=prettier-diffcheck --diff-check src/**/*.js
 ```
 
-### Programmatically
+### プログラムから
 
 ```typescript
 import { checkFileDiff, outputDiffResults } from 'prettier-diffcheck';
@@ -49,7 +49,7 @@ const result = await checkFileDiff('example.js', originalContent, options);
 outputDiffResults([result]);
 ```
 
-## Output Example
+## 出力例
 
 ```diff
 ⚠ src/example.js needs formatting:
@@ -70,9 +70,9 @@ Formatting Summary:
   ⚠ Needs formatting: 1
 ```
 
-## Configuration
+## 設定
 
-Configure via `.prettierrc` file or `prettier.config.js`:
+`.prettierrc`ファイルまたは`prettier.config.js`で設定できます：
 
 ```json
 {
@@ -83,6 +83,6 @@ Configure via `.prettierrc` file or `prettier.config.js`:
 }
 ```
 
-## License
+## ライセンス
 
 MIT
