@@ -1,43 +1,43 @@
 # prettier-diffcheck
 
-Prettierプラグインで、フォーマット前後の差分をdiff形式で表示します。ファイルを実際に変更することなく、Prettierがどのような変更を加えるかを確認できます。
+A Prettier plugin that displays formatting differences in diff format. You can see what changes Prettier would make to your files without actually modifying them.
 
-## 機能
+## Features
 
-- 🔍 Prettierフォーマット前後の差分をdiff形式で表示
-- 🎨 カラー付きの見やすい出力
-- 📁 複数ファイル対応
-- 🚫 ファイルを実際には変更しない（dry-run）
-- 📊 フォーマット結果の統計表示
-- 🔧 全てのPrettier対応言語をサポート
+- 🔍 Display Prettier formatting differences in diff format
+- 🎨 Beautiful colored output
+- 📁 Multiple file support
+- 🚫 No file modifications (dry-run)
+- 📊 Formatting statistics display
+- 🔧 Support for all Prettier-compatible languages
 
-## インストール
+## Installation
 
 ```bash
 npm install prettier-diffcheck --save-dev
-# または
+# or
 yarn add prettier-diffcheck --dev
 ```
 
-## 使用方法
+## Usage
 
-### CLIツールとして
+### As CLI Tool
 
 ```bash
 npx prettier-diffcheck src/**/*.js
 ```
 
-オプション:
-- `--no-color`: カラー出力を無効化
-- `--help`: ヘルプを表示
+Options:
+- `--no-color`: Disable colored output
+- `--help`: Show help message
 
-### Prettierプラグインとして
+### As Prettier Plugin
 
 ```bash
 prettier --plugin=prettier-diffcheck --diff-check src/**/*.js
 ```
 
-### プログラムから
+### Programmatically
 
 ```typescript
 import { checkFileDiff, outputDiffResults } from 'prettier-diffcheck';
@@ -49,7 +49,7 @@ const result = await checkFileDiff('example.js', originalContent, options);
 outputDiffResults([result]);
 ```
 
-## 出力例
+## Output Example
 
 ```diff
 ⚠ src/example.js needs formatting:
@@ -70,9 +70,9 @@ Formatting Summary:
   ⚠ Needs formatting: 1
 ```
 
-## 設定
+## Configuration
 
-`.prettierrc`ファイルまたは`prettier.config.js`で設定できます：
+Configure via `.prettierrc` file or `prettier.config.js`:
 
 ```json
 {
@@ -87,34 +87,34 @@ Formatting Summary:
 
 ### `checkFileDiff(filePath, originalContent, options)`
 
-単一ファイルの差分チェックを行います。
+Performs diff checking for a single file.
 
-**パラメータ:**
-- `filePath` (string): ファイルパス
-- `originalContent` (string): 元のファイル内容
-- `options` (PrettierOptions): Prettierオプション
+**Parameters:**
+- `filePath` (string): File path
+- `originalContent` (string): Original file content
+- `options` (PrettierOptions): Prettier options
 
-**戻り値:** `Promise<DiffResult>`
+**Returns:** `Promise<DiffResult>`
 
 ### `checkMultipleFilesDiff(files, options)`
 
-複数ファイルの差分チェックを行います。
+Performs diff checking for multiple files.
 
-**パラメータ:**
+**Parameters:**
 - `files` (Array): `{ path: string, content: string }[]`
-- `options` (PrettierOptions): Prettierオプション
+- `options` (PrettierOptions): Prettier options
 
-**戻り値:** `Promise<DiffResult[]>`
+**Returns:** `Promise<DiffResult[]>`
 
 ### `outputDiffResults(diffResults, colored?)`
 
-差分結果をコンソールに出力します。
+Outputs diff results to console.
 
-**パラメータ:**
-- `diffResults` (DiffResult[]): 差分結果の配列
-- `colored` (boolean, optional): カラー出力の有効/無効（デフォルト: true）
+**Parameters:**
+- `diffResults` (DiffResult[]): Array of diff results
+- `colored` (boolean, optional): Enable/disable colored output (default: true)
 
-## 型定義
+## Type Definitions
 
 ```typescript
 interface DiffResult {
@@ -131,9 +131,9 @@ interface PrettierOptions {
 }
 ```
 
-## CI/CDでの使用
+## CI/CD Usage
 
-このツールは、CI/CDパイプラインでコードフォーマットの確認に使用できます：
+This tool can be used in CI/CD pipelines to check code formatting:
 
 ```yaml
 # GitHub Actions example
@@ -141,11 +141,11 @@ interface PrettierOptions {
   run: npx prettier-diffcheck "src/**/*.{js,ts,tsx}"
 ```
 
-差分が検出された場合、プロセスは終了コード1で終了します。
+If differences are detected, the process exits with code 1.
 
-## 対応言語
+## Supported Languages
 
-Prettierがサポートする全ての言語に対応：
+Supports all languages that Prettier supports:
 
 - JavaScript / TypeScript
 - CSS / SCSS / Less
@@ -153,34 +153,34 @@ Prettierがサポートする全ての言語に対応：
 - JSON / YAML
 - Markdown
 - GraphQL
-- その他Prettierプラグインで対応している言語
+- Other languages supported by Prettier plugins
 
-## 開発
+## Development
 
 ```bash
-# 依存関係のインストール
+# Install dependencies
 npm install
 
-# ビルド
+# Build
 npm run build
 
-# テスト実行
+# Run tests
 npm test
 
-# 開発モード（ウォッチ）
+# Development mode (watch)
 npm run dev
 ```
 
-## ライセンス
+## License
 
 MIT
 
-## 貢献
+## Contributing
 
-プルリクエストや問題報告を歓迎します。
+Pull requests and issue reports are welcome.
 
-## 関連プロジェクト
+## Related Projects
 
-- [Prettier](https://prettier.io/) - コードフォーマッター
-- [diff](https://github.com/kpdecker/jsdiff) - テキスト差分ライブラリ
-- [chalk](https://github.com/chalk/chalk) - ターミナルカラーライブラリ
+- [Prettier](https://prettier.io/) - Code formatter
+- [diff](https://github.com/kpdecker/jsdiff) - Text diff library
+- [chalk](https://github.com/chalk/chalk) - Terminal color library
