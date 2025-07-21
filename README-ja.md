@@ -1,6 +1,7 @@
 # prettier-diffcheck
 
-Prettierプラグインで、フォーマット前後の差分をdiff形式で表示します。ファイルを実際に変更することなく、Prettierがどのような変更を加えるかを確認できます。
+Prettierのラッパーツールです。
+フォーマット前後の差分をdiff形式で表示します。ファイルを実際に変更することなく、Prettierがどのような変更を加えるかを確認できます。
 
 ## 機能
 
@@ -31,31 +32,11 @@ npx prettier-diffcheck src/**/*.js
 - `--no-color`: カラー出力を無効化
 - `--help`: ヘルプを表示
 
-### Prettierプラグインとして
-
-```bash
-prettier --plugin=prettier-diffcheck --diff-check src/**/*.js
-```
-
-### プログラムから
-
-```typescript
-import { checkFileDiff, outputDiffResults } from 'prettier-diffcheck';
-
-const originalContent = 'const foo={a:1,b:2};';
-const options = { diffCheck: true, parser: 'babel' };
-
-const result = await checkFileDiff('example.js', originalContent, options);
-outputDiffResults([result]);
-```
-
 ## 出力例
 
 ```diff
 ⚠ src/example.js needs formatting:
-
---- a/src/example.js
-+++ b/src/example.js
+===================================================================
 @@ -1,3 +1,3 @@
 -const foo={a:1,b:2};
 -function bar(){return "hello";}

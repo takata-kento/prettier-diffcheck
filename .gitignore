@@ -26,9 +26,3 @@ Thumbs.db
 # Environment
 .env
 .env.local
-
-# Temporary test files
-test1.js
-test2.js
-formatted.js
-example.js

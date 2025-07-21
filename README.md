@@ -1,6 +1,6 @@
 # prettier-diffcheck
 
-A Prettier plugin that displays formatting differences in diff format. You can see what changes Prettier would make to your files without actually modifying them.
+A Prettier wrapper tool that displays formatting differences in diff format. You can see what changes Prettier would make to your files without actually modifying them.
 
 ## Features
 
@@ -31,31 +31,11 @@ Options:
 - `--no-color`: Disable colored output
 - `--help`: Show help message
 
-### As Prettier Plugin
-
-```bash
-prettier --plugin=prettier-diffcheck --diff-check src/**/*.js
-```
-
-### Programmatically
-
-```typescript
-import { checkFileDiff, outputDiffResults } from 'prettier-diffcheck';
-
-const originalContent = 'const foo={a:1,b:2};';
-const options = { diffCheck: true, parser: 'babel' };
-
-const result = await checkFileDiff('example.js', originalContent, options);
-outputDiffResults([result]);
-```
-
 ## Output Example
 
 ```diff
 ⚠ src/example.js needs formatting:
-
---- a/src/example.js
-+++ b/src/example.js
+===================================================================
 @@ -1,3 +1,3 @@
 -const foo={a:1,b:2};
 -function bar(){return "hello";}
