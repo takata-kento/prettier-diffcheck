@@ -1,18 +1,6 @@
 import * as prettier from 'prettier';
-import { PrettierPlugin, PrettierOptions, DiffResult } from './types.js';
+import { PrettierOptions, DiffResult } from './types.js';
 import { Differ } from './differ.js';
-
-const plugin: PrettierPlugin = {
-  options: {
-    diffCheck: {
-      type: 'boolean',
-      category: 'Global',
-      default: false,
-      description: 'Show formatting differences in diff format instead of writing files',
-      since: '1.0.0'
-    }
-  }
-};
 
 export async function checkFileDiff(
   filePath: string,
@@ -107,7 +95,3 @@ export function handleDiffCheck(
       process.exit(1);
     });
 }
-
-export default plugin;
-export { Differ } from './differ.js';
-export * from './types.js';

@@ -3,11 +3,6 @@ export interface PrettierOptions {
   [key: string]: any;
 }
 
-export interface PrettierPlugin {
-  options?: Record<string, OptionDefinition>;
-  defaultOptions?: Partial<PrettierOptions>;
-}
-
 export interface OptionDefinition {
   type: 'boolean' | 'choice' | 'int' | 'path' | 'string';
   category: string;
