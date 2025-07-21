@@ -45,19 +45,21 @@ export class Differ {
     }
 
     const lines = diffResult.diffOutput.split('\n');
-    const coloredLines = lines.map(line => {
-      if (line.startsWith('---') || line.startsWith('+++')) {
-        return chalk.bold(line);
-      } else if (line.startsWith('@@')) {
-        return chalk.cyan(line);
-      } else if (line.startsWith('+')) {
-        return chalk.green(line);
-      } else if (line.startsWith('-')) {
-        return chalk.red(line);
-      } else {
-        return line;
-      }
-    });
+    const coloredLines = lines
+      .filter(line => !(line === `--- a/${diffResult.filePath}` || line === `+++ b/${diffResult.filePath}`))
+      .map(line => {
+        if (line.startsWith('---') || line.startsWith('+++')) {
+          return chalk.bold(line);
+        } else if (line.startsWith('@@')) {
+          return chalk.cyan(line);
+        } else if (line.startsWith('+')) {
+          return chalk.green(line);
+        } else if (line.startsWith('-')) {
+          return chalk.red(line);
+        } else {
+          return line;
+        }
+      });
 
     return [
       chalk.yellow(`⚠ ${diffResult.filePath} needs formatting:`),

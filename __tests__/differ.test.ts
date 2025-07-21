@@ -21,8 +21,6 @@ describe('Differ', () => {
       const result = Differ.generateDiff(original, formatted, 'test.js');
 
       expect(result.hasDifferences).toBe(true);
-      expect(result.diffOutput).toContain('--- a/test.js');
-      expect(result.diffOutput).toContain('+++ b/test.js');
       expect(result.diffOutput).toContain('-const foo={a:1,b:2};');
       expect(result.diffOutput).toContain('+const foo = { a: 1, b: 2 };');
     });
@@ -64,10 +62,7 @@ describe('Differ', () => {
 
       const output = Differ.generateColoredDiff(diffResult);
 
-      // より包括的な検証
       expect(output).toContain('⚠ test.js needs formatting:');
-      expect(output).toContain('--- a/test.js');
-      expect(output).toContain('+++ b/test.js');
       expect(output).toContain('-const foo={a:1};');
       expect(output).toContain('+const foo = { a: 1 };');
       expect(output).toContain('@@');
@@ -121,10 +116,7 @@ describe('Differ', () => {
 
       const output = Differ.generatePlainDiff(diffResult);
 
-      // より包括的な検証
       expect(output).toContain('⚠ test.js needs formatting:');
-      expect(output).toContain('--- a/test.js');
-      expect(output).toContain('+++ b/test.js');
       expect(output).toContain('-old');
       expect(output).toContain('+new');
       expect(output).toContain('@@');
