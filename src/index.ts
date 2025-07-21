@@ -17,13 +17,14 @@ const plugin: PrettierPlugin = {
 export async function checkFileDiff(
   filePath: string,
   originalContent: string,
-  options: PrettierOptions
+  options: PrettierOptions = {}
 ): Promise<DiffResult> {
   try {
-    const formatOptions = { ...options, diffCheck: false };
+    const loadedOptions = await prettier.resolveConfig(filePath);
 
     const formattedContent = await prettier.format(originalContent, {
-      ...formatOptions,
+      ...loadedOptions,
+      ...options,
       filepath: filePath
     });
 
