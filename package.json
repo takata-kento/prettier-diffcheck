@@ -4,7 +4,6 @@
   "type": "module",
   "description": "Prettier plugin for displaying formatting differences in diff format",
   "main": "dist/cli.js",
-  "types": "dist/cli.d.ts",
   "bin": {
     "prettier-diffcheck": "dist/cli.js"
   },
