@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Prettier plugin for displaying formatting differences in diff format",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cli.js",
   "bin": {
     "prettier-diffcheck": "dist/cli.js"
   },
