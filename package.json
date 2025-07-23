@@ -1,6 +1,6 @@
 {
   "name": "prettier-diffcheck",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Prettier wrapper tool for displaying formatting differences in diff format",
   "main": "dist/cli.js",
