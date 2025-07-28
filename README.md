@@ -24,12 +24,25 @@ yarn add prettier-diffcheck --dev
 ### As CLI Tool
 
 ```bash
-npx prettier-diffcheck src/**/*.js
+# Single file
+npx prettier-diffcheck src/index.js
+
+# Multiple files  
+npx prettier-diffcheck src/index.js lib/utils.js
+
+# Glob patterns (recursive)
+npx prettier-diffcheck "src/**/*.js"
+npx prettier-diffcheck "**/*.{js,ts,tsx}"
+
+# Mixed patterns
+npx prettier-diffcheck "src/**/*.js" "test/**/*.ts"
 ```
 
 Options:
 - `--no-color`: Disable colored output
 - `--help`: Show help message
+
+**Note:** Use quotes around glob patterns to prevent shell expansion.
 
 ## Output Example
 

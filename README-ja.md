@@ -25,12 +25,25 @@ yarn add prettier-diffcheck --dev
 ### CLIツールとして
 
 ```bash
-npx prettier-diffcheck src/**/*.js
+# 単一ファイル
+npx prettier-diffcheck src/index.js
+
+# 複数ファイル  
+npx prettier-diffcheck src/index.js lib/utils.js
+
+# グロブパターン（再帰的）
+npx prettier-diffcheck "src/**/*.js"
+npx prettier-diffcheck "**/*.{js,ts,tsx}"
+
+# 混合パターン
+npx prettier-diffcheck "src/**/*.js" "test/**/*.ts"
 ```
 
 オプション:
 - `--no-color`: カラー出力を無効化
 - `--help`: ヘルプを表示
+
+**注意:** グロブパターンはシェル展開を防ぐためにクォートで囲んでください。
 
 ## 出力例
 
