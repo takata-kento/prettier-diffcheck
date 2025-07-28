@@ -23,16 +23,17 @@
     "dist/"
   ],
   "dependencies": {
+    "chalk": "^5.0.0",
     "diff": "^8.0.0",
-    "chalk": "^5.0.0"
+    "glob": "^11.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^24.0.0",
-    "prettier": "^3.0.0",
-    "jest": "^30.0.0",
     "@types/jest": "^30.0.0",
-    "ts-jest": "^29.0.0"
+    "@types/node": "^24.0.0",
+    "jest": "^30.0.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.0.0",
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "prettier": "^3.0.0"
